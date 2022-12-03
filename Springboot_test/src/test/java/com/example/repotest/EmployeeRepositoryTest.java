@@ -28,26 +28,26 @@ public class EmployeeRepositoryTest {
 
 	@Test
 	void testSaveNewEmloyee() {
-		testEntityManager.persist(new Employee(11, "e", "a@gmail.com"));
-		Employee e = employeeRepository.findById(11).get();
-		assertThat(e.getName()).isEqualTo("e");
+		testEntityManager.persist(new Employee(10, "d", "din@gmail.com"));
+		Employee e = employeeRepository.findById(10).get();
+		assertThat(e.getName()).isEqualTo("d");
 	}
 
 	@Test
 	void testFetchAStudent() {
 		
-		Employee e = employeeRepository.findById(11).get();
-		assertThat(e.getEmail()).isEqualTo("a@gmail.com");
+		Employee e = employeeRepository.findById(10).get();
+		assertThat(e.getEmail()).isEqualTo("din@gmail.com");
 	}
 
 	@Test
 	void testUpdateAStudent() {
-		Employee e = employeeRepository.findById(11).get();
-		e.setEmail("a@hotmail.com");
-		e.setName("Mahesh");
+		Employee e = employeeRepository.findById(10).get();
+		e.setEmail("din@hotmail.com");
+		e.setName("dinbandhu");
 		testEntityManager.persist(e);
-		Employee sUpdated = employeeRepository.findById(11).get();
+		Employee sUpdated = employeeRepository.findById(10).get();
 
-		assertThat(sUpdated.getEmail()).isEqualTo("a@hotmail.com");
+		assertThat(sUpdated.getEmail()).isEqualTo("din@hotmail.com");
 	}
 }
